@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bumijojetis</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- External Styles -->
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary': 'hsl(82, 60%, 28%)',
+            'title': 'hsl(0, 0%, 15%)',
+            'text': 'hsl(0, 0%, 35%)',
+            'body': 'hsl(0, 0%, 95%)',
+            'container': 'hsl(0, 0%, 100%)'
+          },
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif']
+          },
+          fontSize: {
+            'h2-mobile': '1.25rem',
+            'h2-desktop': '1.5rem',
+            'small-mobile': '0.813rem',
+            'small-desktop': '0.875rem'
+          },
+          width: {
+            '82': '328px',
+            '87': '348px', 
+            'card-90': '295px',
+            'card-90-lg': '313px'
+          },
+          height: {
+            'portrait': '400px',
+            'portrait-lg': '420px'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 w-full z-50 backdrop-blur-md bg-white/30 border-b border-white/20 flex justify-center items-center py-4">
+    <div class="flex gap-6">
+      <img src="assets/image/logo/logo_1.png" alt="logo 1" class="h-20 rounded-full">
+      <img src="assets/image/logo/logo_2.png" alt="logo 2" class="h-20 rounded-full">
+      <img src="assets/image/logo/logo_3.png" alt="logo 3" class="h-20 rounded-full">
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <div id="mainContent">
+    <!-- VIDEO SECTION -->
+    <section class="relative w-full h-[70vh] overflow-hidden">
+      <video autoplay muted loop class="w-full h-full object-cover">
+        <source src="assets/video/merti-belik.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </section>
+
+    <!-- GREEN SECTION -->
+    <section class="bg-[#00B14F] text-center py-8">
+      <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">
+        Klasifikasi Jenis Usaha UMKM mu
+      </h2>
+      <button 
+        id="cobaBtn"
+        class="bg-white text-[#00B14F] font-semibold py-3 px-8 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-gray-100 active:scale-95 cursor-pointer">
+        Coba
+      </button>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="my-20 px-6">
+      <div class="w-[90%] mx-auto">
+        <h2 class="text-center text-2xl md:text-3xl font-bold mb-12">About</h2>
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+          <!-- Left Side - Photo -->
+          <div class="flex justify-start">
+            <img src="assets/image/about/about.png" 
+                alt="Kelurahan Bumijo" 
+                class="w-[95%] h-[500px] rounded-3xl object-cover shadow-lg">
+          </div>
+          
+          <!-- Right Side - About Text -->
+          <div class="h-[350px] flex flex-col justify-center space-y-4">
+            <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-4">
+              Kelurahan Bumijo
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Kelurahan Bumijo merupakan salah satu kelurahan yang berada di Kecamatan Jetis, Kota Yogyakarta. 
+              Kami berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Dengan semangat gotong royong dan kebersamaan, kami terus mengembangkan berbagai program 
+              yang bermanfaat bagi seluruh warga.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              VISI dan MISI kami adalah menjadikan Kelurahan Bumijo sebagai Kelurahan Yang Tertib Aman Nyaman dan Layak
+              sebagai tempat hunian yang didukung dengan sarana prasarana publik dan pelayanan pemerintahan yang baik
+              untuk meningkatkan keberdayaan dan kesejahteraan masyarakat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrapper">
+        <!-- Animasi ke kiri -->
+        <div class="itemLeft item1">
+          <img src="assets/image/logo/logo_1.png" alt="logo 1" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemLeft item2">
+          <img src="assets/image/logo/logo_2.png" alt="logo 2" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemLeft item3">
+          <img src="assets/image/logo/logo_3.png" alt="logo 3" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemLeft item4">
+          <img src="assets/image/logo/logo_4.png" alt="logo 4" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemLeft item5">
+          <img src="assets/image/logo/logo_5.png" alt="logo 5" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemLeft item6">
+          <img src="assets/image/logo/logo_6.png" alt="logo 6" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemLeft item7">
+          <img src="assets/image/logo/logo_7.png" alt="logo 7" class="w-full h-full object-contain" />
+        </div>
+      </div>
+      <div class="wrapper">
+        <!-- Animasi ke kanan -->
+        <div class="itemRight item1">
+          <img src="assets/image/logo/logo_1.png" alt="logo 1" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemRight item2">
+          <img src="assets/image/logo/logo_2.png" alt="logo 2" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemRight item3">
+          <img src="assets/image/logo/logo_3.png" alt="logo 3" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemRight item4">
+          <img src="assets/image/logo/logo_4.png" alt="logo 4" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemRight item5">
+          <img src="assets/image/logo/logo_5.png" alt="logo 5" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemRight item6">
+          <img src="assets/image/logo/logo_6.png" alt="logo 6" class="w-full h-full object-contain" />
+        </div>
+        <div class="itemRight item7">
+          <img src="assets/image/logo/logo_7.png" alt="logo 7" class="w-full h-full object-contain" />
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="my-12 px-6 my-20">
+      <div class="max-w-6xl mx-auto p-2 bg-white rounded-lg shadow-md">
+        <div id="map" class="w-full h-[65vh] rounded-lg"></div>
+      </div>
+    </section>
+
+    <!-- SLIDER SECTION -->
+    <section class="my-12 px-6">
+      <h2 class="text-center text-2xl md:text-3xl font-bold mb-6">Activities</h2>
+      <div class="swiper w-[95%] mx-auto pb-10">
+        <div class="swiper-wrapper">
+          <!-- Slide Template -->
+          <div class="swiper-slide relative rounded-2xl overflow-hidden aspect-[5/3]">
+            <img src="assets/image/activity/activity_1.JPG" alt="Slide 1" class="w-full h-[250px] object-cover">
+            <div class="absolute bottom-4 left-5 text-white drop-shadow-lg">
+              <h3 class="text-lg font-bold">Bimbingan Teknis Kengusahaan</h3>
+            </div>
+          </div>
+
+          <div class="swiper-slide relative rounded-2xl overflow-hidden aspect-[5/3]">
+            <img src="assets/image/activity/activity_2.jpg" alt="Slide 2" class="w-full h-[250px] object-cover">
+            <div class="absolute bottom-4 left-5 text-white drop-shadow-lg">
+              <h3 class="text-lg font-bold">Penyuluhan Sex Education dan Bahaya Narkoba di Jajanan Anak</h3>
+            </div>
+          </div>
+
+          <div class="swiper-slide relative rounded-2xl overflow-hidden aspect-[5/3]">
+            <img src="assets/image/activity/activity_3.jpg" alt="Slide 3" class="w-full h-[250px] object-cover">
+            <div class="absolute bottom-4 left-5 text-white drop-shadow-lg">
+              <h3 class="text-lg font-bold">Sosialisasi Paving Block Plastik dan Alat Prostetik</h3>
+            </div>
+          </div>
+
+          <div class="swiper-slide relative rounded-2xl overflow-hidden aspect-[5/3]">
+            <img src="assets/image/activity/activity_4.jpg" alt="Slide 4" class="w-full h-[250px] object-cover">
+            <div class="absolute bottom-4 left-5 text-white drop-shadow-lg">
+              <h3 class="text-lg font-bold">Sosialisasi Pupuk Organik Cair</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination mt-4"></div>
+      </div>
+    </section>
+
+    <!-- MAGAZINE SECTION -->
+    <section class="px- my-20">
+      <h2 class="text-center text-2xl md:text-3xl font-bold mb-6">Magazine & Infographics</h2>
+      <div class="grid place-items-center mx-6 py-10">
+        <div class="grid gap-14 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+          <!-- Magazine Card 1 -->
+          <article class="card-article">
+            <img src="assets/image/magazine/magazine_3.png" 
+                 alt="Magazine Issue 1" 
+                 class="w-82 h-portrait rounded-3xl block max-w-full object-cover lg:w-87 lg:h-portrait-lg">
+            
+            <div class="card-data w-card-90 bg-white p-6 lg:px-10 shadow-lg rounded-2xl absolute -bottom-36 left-0 right-0 mx-auto opacity-0 lg:w-card-90-lg">
+              <span class="block text-small-mobile lg:text-small-desktop mb-1 text-gray-600">Edisi Agustus 2025</span>
+              <h2 class="text-h2-mobile lg:text-h2-desktop font-medium text-title mb-3">UMKM dan Teknologi</h2>
+              <button onclick="downloadMagazine('magazine-jan-2025.pdf')" 
+                      class="text-small-mobile lg:text-small-desktop font-medium text-[#00B14F] no-underline hover:underline cursor-pointer bg-transparent border-none">
+                Read More
+              </button>
+            </div>
+          </article>
+
+          <!-- Magazine Card 2 -->
+          <article class="card-article">
+            <img src="assets/image/magazine/magazine_2.png" 
+                 alt="Magazine Issue 2" 
+                 class="w-82 h-portrait rounded-3xl block max-w-full object-cover lg:w-87 lg:h-portrait-lg">
+            
+            <div class="card-data w-card-90 bg-white p-6 lg:px-10 shadow-lg rounded-2xl absolute -bottom-36 left-0 right-0 mx-auto opacity-0 lg:w-card-90-lg">
+              <span class="block text-small-mobile lg:text-small-desktop mb-1 text-gray-600">Edisi Agustus 2025</span>
+              <h2 class="text-h2-mobile lg:text-h2-desktop font-medium text-title mb-3">Pengelolaan Lingkungan</h2>
+              <button onclick="downloadMagazine('Majalah-Fix.pdf')" 
+                      class="text-small-mobile lg:text-small-desktop font-medium text-[#00B14F] no-underline hover:underline cursor-pointer bg-transparent border-none">
+                Read More
+              </button>
+            </div>
+          </article>
+
+          <!-- Magazine Card 3 -->
+          <article class="card-article">
+            <img src="assets/image/magazine/magazine_3.png" 
+                 alt="Magazine Issue 3" 
+                 class="w-82 h-portrait rounded-3xl block max-w-full object-cover lg:w-87 lg:h-portrait-lg">
+            
+            <div class="card-data w-card-90 bg-white p-6 lg:px-10 shadow-lg rounded-2xl absolute -bottom-36 left-0 right-0 mx-auto opacity-0 lg:w-card-90-lg">
+              <span class="block text-small-mobile lg:text-small-desktop mb-1 text-gray-600">Edisi Juli 2025</span>
+              <h2 class="text-h2-mobile lg:text-h2-desktop font-medium text-title mb-3">Mengembangkan Bisnis</h2>
+              <button onclick="downloadMagazine('Business Creation & Growth Strategies.pdf')" 
+                      class="text-small-mobile lg:text-small-desktop font-medium text-[#00B14F] no-underline hover:underline cursor-pointer bg-transparent border-none">
+                Read More
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- UMKM FORM SECTION -->
+  <div id="formSection" class="hidden min-h-screen bg-gray-50 py-8">
+    <div class="max-w-4xl mx-auto px-6">
+      <!-- Back Button -->
+      <button id="backBtn" class="mb-6 flex items-center gap-2 text-[#00B14F] hover:text-green-700 transition-colors">
+        <i class="fas fa-arrow-left"></i>
+        <span class="font-medium">Kembali</span>
+      </button>
+
+      <!-- Form Container -->
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-800 mb-2">Klasifikasi UMKM</h2>
+          <p class="text-gray-600">Isi data usaha Anda untuk mendapatkan klasifikasi UMKM</p>
+        </div>
+
+        <form id="umkmForm" class="space-y-6">
+          <!-- Business Type -->
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-gray-700">Jenis Usaha</label>
+            <select name="business_type" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B14F] focus:border-transparent transition-all">
+              <option value="">Pilih Jenis Usaha</option>
+              <option value="0">Kesehatan</option>
+              <option value="1">Teknologi</option>
+              <option value="2">Pendidikan</option>
+              <option value="3">Perdagangan</option>
+              <option value="4">Fashion</option>
+              <option value="5">Jasa</option>
+              <option value="6">Kuliner</option>
+            </select>
+          </div>
+
+          <!-- Total Workers -->
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-gray-700">Jumlah Pekerja</label>
+            <input type="number" name="total_workers" min="0" required 
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B14F] focus:border-transparent transition-all"
+                   placeholder="Masukkan jumlah pekerja">
+          </div>
+
+          <!-- Assets -->
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-gray-700">Aset (Rupiah)</label>
+            <input type="text" name="assets" required 
+                   class="currency-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B14F] focus:border-transparent transition-all"
+                   placeholder="Masukkan nilai aset (contoh: 50000000)">
+            <small class="text-gray-500">Format: Rp 50.000.000</small>
+          </div>
+
+          <!-- Revenue -->
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-gray-700">Pendapatan per Tahun (Rupiah)</label>
+            <input type="text" name="revenue" required 
+                   class="currency-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B14F] focus:border-transparent transition-all"
+                   placeholder="Masukkan pendapatan per tahun (contoh: 100000000)">
+            <small class="text-gray-500">Format: Rp 100.000.000</small>
+          </div>
+
+          <!-- Profit -->
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-gray-700">Keuntungan per Tahun (Rupiah)</label>
+            <input type="text" name="profit" required 
+                   class="currency-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B14F] focus:border-transparent transition-all"
+                   placeholder="Masukkan keuntungan per tahun (contoh: 25000000)">
+            <small class="text-gray-500">Format: Rp 25.000.000</small>
+          </div>
+
+          <!-- Employee Cost -->
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-gray-700">Biaya Karyawan per Tahun (Rupiah)</label>
+            <input type="text" name="employee_cost" required 
+                   class="currency-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B14F] focus:border-transparent transition-all"
+                   placeholder="Masukkan biaya karyawan per tahun (contoh: 30000000)">
+            <small class="text-gray-500">Format: Rp 30.000.000</small>
+          </div>
+
+          <!-- Marketplace -->
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-gray-700">Platform Marketplace</label>
+            <select name="marketplace" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B14F] focus:border-transparent transition-all">
+              <option value="">Pilih Platform</option>
+              <option value="0">Bukalapak</option>
+              <option value="1">Lazada</option>
+              <option value="2">Website Sendiri</option>
+              <option value="3">Tokopedia</option>
+              <option value="4">Shopee</option>
+            </select>
+          </div>
+
+          <!-- Legal Status -->
+          <div class="space-y-3">
+            <label class="block text-sm font-semibold text-gray-700">Status Legal</label>
+            <div class="flex gap-6">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="legal_status" value="0" required class="w-4 h-4 text-[#00B14F] border-gray-300 focus:ring-[#00B14F]">
+                <span class="text-gray-700">Belum Terdaftar</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="legal_status" value="1" required class="w-4 h-4 text-[#00B14F] border-gray-300 focus:ring-[#00B14F]">
+                <span class="text-gray-700">Terdaftar</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Production Capacity -->
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-gray-700">Kapasitas Produksi per Bulan</label>
+            <input type="number" name="production_capacity" min="0" required 
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B14F] focus:border-transparent transition-all"
+                   placeholder="Masukkan kapasitas produksi per bulan">
+          </div>
+
+          <!-- Established Year -->
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-gray-700">Tahun Didirikan</label>
+            <input type="number" name="established_year" min="1900" max="2025" required 
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B14F] focus:border-transparent transition-all"
+                   placeholder="Masukkan tahun didirikan">
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" 
+                  class="w-full bg-[#00B14F] text-white font-semibold py-4 px-8 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-green-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+            <span id="submitText">Klasifikasi UMKM</span>
+            <span id="loadingText" class="hidden">
+              <i class="fas fa-spinner fa-spin mr-2"></i>
+              Memproses...
+            </span>
+          </button>
+        </form>
+
+        <!-- Success Result Card -->
+        <div id="successCard" class="hidden mt-8 bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-6">
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+              <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Hasil Klasifikasi</h3>
+            <div class="space-y-2">
+              <p class="text-sm text-gray-600">Status UMKM Anda:</p>
+              <div class="inline-block bg-white px-4 py-2 rounded-lg border">
+                <span id="resultStatus" class="text-lg font-bold text-[#00B14F]"></span>
+              </div>
+              <p class="text-sm text-gray-500 mt-2">
+                Confidence: <span id="resultConfidence" class="font-semibold"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error Card -->
+        <div id="errorCard" class="hidden mt-8 bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 rounded-xl p-6">
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
+              <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Terjadi Kesalahan</h3>
+            <div class="space-y-2">
+              <p id="errorMessage" class="text-sm text-gray-600"></p>
+              <button onclick="document.getElementById('errorCard').classList.add('hidden')" 
+                      class="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="w-full text-black py-24 pb-8 text-sm leading-5 px-8 md:px-16 custom-footer">
+    <div class="max-w-[90%] mx-auto flex flex-wrap items-start justify-between gap-24">
+      <!-- Logo & Social -->
+      <div class="flex-shrink-0 w-64">
+        <div class="flex gap-4 mb-5">
+          <img src="assets/image/logo/logo_1.png" class="w-16 h-auto">
+          <img src="assets/image/logo/logo_2.png" class="w-16 h-auto">
+          <img src="assets/image/logo/logo_3.png" class="w-16 h-auto">
+        </div>
+        <p class="mb-4">KKN-PPM UGM Unit YO071-2025 | Merintis Jetis, Periode 2</p>
+        <p class="mb-4">Sinergi Pemgelolaan Lingkungan dan Pemberdayaan Masyarakat di Kawasan Perkotaan</p>
+        <div class="flex gap-1 mt-2">
+          <a href="https://www.instagram.com/kelurahanbumijo/" target="_blank" 
+             class="w-10 h-10 rounded-full text-center leading-10 text-xl text-black bg-white cursor-pointer hover:bg-gray-100 transition-colors">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://bumijokel.jogjakota.go.id/page/index/gambaran-umum" target="_blank" 
+             class="w-10 h-10 rounded-full text-center leading-10 text-base text-black bg-white cursor-pointer hover:bg-gray-100 transition-colors">
+            <i class="fa-solid fa-link"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="flex-shrink-0 w-72">
+        <h3 class="w-fit mb-10 relative font-bold text-base md:text-lg">
+          Location
+          <div class="underline"><span></span></div>
+        </h3>
+        <p class="mb-1">Jl. Tentara Zeni Pelajar No.8, Bumijo</p>
+        <p class="mb-1">Kec. Jetis, Kota Yogyakarta</p>
+        <p class="mb-4">Daerah Istimewa Yogyakarta, 55231</p>
+        <p class="w-fit border-b border-black my-5">bumijo@jogjakota.go.id</p>
+        <h4 class="font-semibold">+62 - (0274) 548948</h4>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="flex-grow min-w-80">
+        <h3 class="mb-6 font-bold text-base md:text-lg">Contact</h3>
+        <form class="space-y-3">
+          <input
+            class="w-full h-10 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-xs placeholder-white"
+            name="email"
+            type="email"
+            required
+            maxlength="500"
+            placeholder="Your email"
+          />
+          <textarea
+            class="w-full h-24 px-3 py-2 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-green-500 text-xs placeholder-white"
+            name="message"
+            required
+            maxlength="5000"
+            placeholder="Your message"
+          ></textarea>
+          <button 
+            type="submit" 
+            class="submit-btn w-full h-8 rounded-lg transition-all duration-200 hover:scale-105 text-xs"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <hr class="border-t border-black my-8 max-w-[95%] mx-auto">
+
+    <div class="text-center px-4 text-gray-600">
+      <small class="block text-xs mb-2">
+        &copy; 2025 KKN-PPM UGM YO071 Merintis Jetis. All rights reserved.
+      </small>
+      <p class="text-xs">
+        <span class="font-semibold">About this website:</span> built with
+        HTML, Javascript, Tailwind CSS, Swiper Js, GSAP, Formspree.
+      </p>
+    </div>
+  </footer>
+
+  <!-- External Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+  <!-- Custom Scripts -->
+  <script src="util/magazine.js"></script>
+  <script src="util/main.js"></script>
+  <script src="util/map.js"></script>
+
+  <script src="util/ml.js"></script>
+</body>
+</html>
